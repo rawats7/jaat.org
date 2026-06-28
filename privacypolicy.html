@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy </title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+                   RESET & BASE
+                   ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: #0b0d15;
+            /* animated gradient background */
+            background: radial-gradient(ellipse at 20% 50%, #1a1040 0%, #0b0d15 60%, #0a0e1a 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ---- floating orbs (background animation) ---- */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 18s ease-in-out infinite alternate;
+        }
+        .orb--1 {
+            width: 500px;
+            height: 500px;
+            background: #7c3aed;
+            top: -150px;
+            left: -150px;
+            animation-duration: 22s;
+        }
+        .orb--2 {
+            width: 600px;
+            height: 600px;
+            background: #f59e0b;
+            bottom: -200px;
+            right: -200px;
+            animation-duration: 26s;
+            animation-delay: -4s;
+        }
+        .orb--3 {
+            width: 400px;
+            height: 400px;
+            background: #06b6d4;
+            top: 40%;
+            right: -100px;
+            animation-duration: 20s;
+            animation-delay: -8s;
+            opacity: 0.15;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(60px, -80px) scale(1.1);
+            }
+            66% {
+                transform: translate(-40px, 60px) scale(0.9);
+            }
+            100% {
+                transform: translate(30px, -30px) scale(1.05);
+            }
+        }
+
+        /* ============================================================
+                   MAIN CONTAINER — glass‑morphism + glow
+                   ============================================================ */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 48px;
+            padding: 55px 50px 45px;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(255, 215, 0, 0.06) inset,
+                0 0 60px rgba(124, 58, 237, 0.15);
+            animation: containerIn 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .container:hover {
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 215, 0, 0.12) inset,
+                0 0 80px rgba(124, 58, 237, 0.25);
+        }
+
+        @keyframes containerIn {
+            0% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ============================================================
+                   HEADER
+                   ============================================================ */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #7c3aed, #4f46e5);
+            border-radius: 28px;
+            font-size: 38px;
+            color: #fff;
+            margin-bottom: 18px;
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.4);
+            animation: pulseGlow 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .header .icon-badge:hover {
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 12px 40px rgba(124, 58, 237, 0.4);
+            }
+            50% {
+                box-shadow: 0 12px 60px rgba(124, 58, 237, 0.7), 0 0 80px rgba(124, 58, 237, 0.2);
+            }
+        }
+
+        .header h1 {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            margin-bottom: 6px;
+            animation: titleSlide 0.9s cubic-bezier(0.23, 1, 0.32, 1) both;
+            animation-delay: 0.1s;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.3px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 16px;
+            margin-top: 6px;
+            display: inline-block;
+        }
+
+        .header .subtitle i {
+            color: #f59e0b;
+            margin: 0 6px;
+        }
+
+        @keyframes titleSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ---- decorative line ---- */
+        .divider {
+            width: 120px;
+            height: 4px;
+            margin: 18px auto 0;
+            background: linear-gradient(90deg, transparent, #f59e0b, #7c3aed, transparent);
+            border-radius: 4px;
+            animation: lineGrow 1.2s ease both;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes lineGrow {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 120px;
+                opacity: 1;
+            }
+        }
+
+        /* ============================================================
+                   HIGHLIGHT BOX
+                   ============================================================ */
+        .highlight-box {
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.12), rgba(245, 158, 11, 0.06));
+            border-left: 6px solid #f59e0b;
+            border-radius: 18px;
+            padding: 24px 30px;
+            margin: 28px 0 36px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeUp 0.9s ease both;
+            animation-delay: 0.25s;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .highlight-box i {
+            font-size: 28px;
+            color: #fbbf24;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .highlight-box p {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .highlight-box strong {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================================
+                   SECTIONS (cards)
+                   ============================================================ */
+        .section-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-item {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 28px 32px;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: fadeUp 0.8s ease both;
+            animation-delay: calc(0.1s * var(--i, 1));
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.06), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .section-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 215, 0, 0.15);
+            transform: translateY(-3px) scale(1.005);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-item:hover::before {
+            opacity: 1;
+        }
+
+        .section-item .heading {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .section-item .heading .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #7c3aed, #4f46e5);
+            color: #fff;
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-item:hover .num {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+        }
+
+        .section-item .heading h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #e5e7eb;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .section-item:hover .heading h2 {
+            color: #fbbf24;
+        }
+
+        .section-item .heading h2 i {
+            font-size: 22px;
+            color: #f59e0b;
+            margin-right: 10px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .section-item:hover .heading h2 i {
+            opacity: 1;
+        }
+
+        .section-item p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+            padding-left: 60px;
+        }
+
+        .section-item p strong {
+            color: #fcd34d;
+            font-weight: 600;
+        }
+
+        /* ---- special style for last item (contact) ---- */
+        .section-item.contact {
+            border-color: rgba(6, 182, 212, 0.2);
+            background: rgba(6, 182, 212, 0.04);
+        }
+
+        .section-item.contact .num {
+            background: linear-gradient(145deg, #06b6d4, #0891b2);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .section-item.contact:hover .num {
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.5);
+        }
+
+        .section-item.contact:hover .heading h2 {
+            color: #22d3ee;
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .footer {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            animation: fadeUp 1s ease both;
+            animation-delay: 0.6s;
+        }
+
+        .footer .copy {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.2px;
+        }
+
+        .footer .copy i {
+            color: #f59e0b;
+            margin: 0 4px;
+        }
+
+        .footer .social-links {
+            display: flex;
+            gap: 14px;
+        }
+
+        .footer .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer .social-links a:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.3);
+            color: #fbbf24;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .container {
+                padding: 32px 20px 28px;
+                border-radius: 32px;
+            }
+
+            .header h1 {
+                font-size: 40px;
+                letter-spacing: -0.5px;
+            }
+
+            .header .subtitle {
+                font-size: 16px;
+            }
+
+            .header .icon-badge {
+                width: 64px;
+                height: 64px;
+                font-size: 30px;
+                border-radius: 22px;
+            }
+
+            .highlight-box {
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .highlight-box i {
+                font-size: 24px;
+            }
+
+            .highlight-box p {
+                font-size: 16px;
+            }
+
+            .section-item {
+                padding: 22px 20px;
+            }
+
+            .section-item .heading h2 {
+                font-size: 22px;
+            }
+
+            .section-item .heading .num {
+                width: 38px;
+                height: 38px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+
+            .section-item p {
+                font-size: 15px;
+                padding-left: 0;
+                margin-top: 10px;
+            }
+
+            .section-item .heading {
+                flex-wrap: wrap;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                padding: 24px 16px 20px;
+                border-radius: 24px;
+            }
+
+            .section-item {
+                padding: 18px 16px;
+            }
+
+            .section-item .heading h2 {
+                font-size: 19px;
+            }
+
+            .section-item p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Background Orbs ===== -->
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+
+    <!-- ===== Main Container ===== -->
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="icon-badge">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <h1>Privacy Policy</h1>
+            <div class="subtitle">
+                <i class="fas fa-lock"></i> &nbsp; your trust is our foundation &nbsp; <i class="fas fa-lock"></i>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- HIGHLIGHT BOX -->
+        <div class="highlight-box">
+            <i class="fas fa-circle-info"></i>
+            <p>
+                <strong>Last updated:</strong> June 28, 2026 &nbsp;·&nbsp;
+                This Privacy Policy explains how we collect, use, and protect your information when you interact with our prediction channel and related services. We are committed to transparency and data security.
+            </p>
+        </div>
+
+        <!-- SECTIONS -->
+        <div class="section-grid">
+
+            <!-- 1 -->
+            <div class="section-item" style="--i:1;">
+                <div class="heading">
+                    <span class="num">1</span>
+                    <h2><i class="fas fa-database"></i> Information We Collect</h2>
+                </div>
+                <p>
+                    We may collect basic information that you voluntarily provide, such as your <strong>Telegram username</strong>, messages sent to our bot, or information required to deliver our services. We do <strong>not</strong> collect sensitive personal data unless explicitly provided by you.
+                </p>
+            </div>
+
+            <!-- 2 -->
+            <div class="section-item" style="--i:2;">
+                <div class="heading">
+                    <span class="num">2</span>
+                    <h2><i class="fas fa-gears"></i> How We Use Your Information</h2>
+                </div>
+                <p>
+                    Your information is used only to <strong>provide channel updates</strong>, respond to inquiries, improve our services, and maintain the security and functionality of our platform. We never sell or rent your data to third parties.
+                </p>
+            </div>
+
+            <!-- 3 -->
+            <div class="section-item" style="--i:3;">
+                <div class="heading">
+                    <span class="num">3</span>
+                    <h2><i class="fas fa-shield"></i> Data Protection</h2>
+                </div>
+                <p>
+                    We take <strong>reasonable measures</strong> to protect your information against unauthorized access, misuse, or disclosure. This includes encryption, access controls, and regular security reviews. However, no system is 100% secure, and we encourage you to use strong credentials.
+                </p>
+            </div>
+
+            <!-- 4 -->
+            <div class="section-item" style="--i:4;">
+                <div class="heading">
+                    <span class="num">4</span>
+                    <h2><i class="fas fa-cloud"></i> Third-Party Services</h2>
+                </div>
+                <p>
+                    Our channel or bot may use trusted third-party services such as <strong>Telegram</strong>. Their own privacy policies apply to information processed through their platforms. We recommend reviewing Telegram's Privacy Policy for additional clarity.
+                </p>
+            </div>
+
+            <!-- 5 -->
+            <div class="section-item" style="--i:5;">
+                <div class="heading">
+                    <span class="num">5</span>
+                    <h2><i class="fas fa-chart-line"></i> Predictions Disclaimer</h2>
+                </div>
+                <p>
+                    The content shared in this channel is for <strong>informational purposes only</strong>. Predictions are based on available analysis and should <strong>not</strong> be considered guaranteed outcomes. Users are responsible for their own decisions. Always do your own research.
+                </p>
+            </div>
+
+            <!-- 6 -->
+            <div class="section-item" style="--i:6;">
+                <div class="heading">
+                    <span class="num">6</span>
+                    <h2><i class="fas fa-cookie-bite"></i> Cookies &amp; Analytics</h2>
+                </div>
+                <p>
+                    If our website uses analytics or cookies, they are used only to <strong>improve performance</strong> and user experience. We do not use tracking for advertising purposes. You can disable cookies in your browser settings at any time.
+                </p>
+            </div>
+
+            <!-- 7 -->
+            <div class="section-item" style="--i:7;">
+                <div class="heading">
+                    <span class="num">7</span>
+                    <h2><i class="fas fa-rotate"></i> Policy Updates</h2>
+                </div>
+                <p>
+                    This Privacy Policy may be updated from time to time. We will notify you of any material changes via our channel or bot. <strong>Continued use</strong> of our services indicates acceptance of the latest version.
+                </p>
+            </div>
+
+            <!-- 8 (contact) -->
+            <div class="section-item contact" style="--i:8;">
+                <div class="heading">
+                    <span class="num">8</span>
+                    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                </div>
+                <p>
+                    If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out through our <strong>official Telegram channel</strong> or support bot. We aim to respond within <strong>24 hours</strong>.
+                </p>
+            </div>
+
+        </div>
+
+      
+
+    </div>
+
+</body>
+</html>
